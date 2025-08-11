@@ -17,7 +17,7 @@ public class FindDuplicatedStr {
     public Element find(String[] array) {
         for(int i = 0; i < array.length; i++) {
 
-            // "int j = i + 1" empede que o valor seja comparado com ele mesmo;
+            // "int j = i + 1" impede que o valor seja comparado com ele mesmo;
             for(int j = i + 1; j < array.length; j++) {
                 
                 // "equals()" compara o conteudo, enqualto "==" compara o endereco da memoria;
