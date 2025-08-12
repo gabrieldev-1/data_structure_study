@@ -1,4 +1,4 @@
-package arrays;
+package arrays.exemples;
 
 public class Arrays {
     public static void main(String[] args) {
