@@ -1,4 +1,4 @@
-package three;
+package tree;
 
 // BST = "Binary Search Three"
 // E uma arvore que armazena os valores menores a esquerda e os maiores a direita;
