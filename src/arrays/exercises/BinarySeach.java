@@ -28,7 +28,7 @@ public class BinarySeach {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7};
         BinarySeach search = new BinarySeach();
 
-        int targetAdrr = search.search(numbers, 5);
+        int targetAdrr = search.search(numbers, 3);
         System.out.println(targetAdrr);
     }
 }
