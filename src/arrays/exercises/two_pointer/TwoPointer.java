@@ -1,4 +1,4 @@
-package arrays.exercises;
+package arrays.exercises.two_pointer;
 
 public class TwoPointer {
 

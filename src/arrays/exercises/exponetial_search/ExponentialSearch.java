@@ -1,4 +1,4 @@
-package arrays.exercises;
+package arrays.exercises.exponetial_search;
 
 public class ExponentialSearch {
     private int BinarySeach(int[] arr, int left, int right, int target) {

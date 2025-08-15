@@ -1,4 +1,4 @@
-package arrays.exercises;
+package arrays.exercises.binary_search;
 
 public class BinarySeach {
     public int search(int[] arr, int element) {
