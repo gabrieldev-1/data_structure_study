@@ -1,4 +1,4 @@
-package arrays.exercises.sliding_window;
+package arrays.algorithms.sliding_window;
 
 public class SlidingWindow {
     public int searchMaxSum(int[] arr, int window) {
