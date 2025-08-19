@@ -1,4 +1,4 @@
-package arrays.algorithms.two_pointer;
+package arrays.algorithms;
 
 public class TwoPointer {
 
