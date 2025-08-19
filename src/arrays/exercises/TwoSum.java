@@ -1,33 +1,41 @@
 package arrays.exercises;
 
 public class TwoSum {
-    public int[] searchSum(int[] arr, int target) {
-        int[] result = new int[2];
+    public int[] searchTarget(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
 
-        for(int i = 0; i < arr.length; i++) {
-            for(int j = i + 1; j < arr.length; j++) {
-                
-                if(arr[i] + arr[j] == target) {
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
+        // o loop continua ate os ponteiros se cruzarem;
+        while(left < right) {
+            int sum = arr[left] + arr[right];
+        
+            if(sum == target) {
+                return new int[]{left, right};
 
-                }
+            }
+            if(sum < target) {
+                left++;
+
+            }
+            if(sum > right) {
+                right--;
             }
         }
-        return result;
+
+        return null;
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 2, 1, 1, 5};
-        TwoSum search = new TwoSum();
+        int[] array = {1, 1, 1, 1, 3, 3};
+        TwoSum solution = new TwoSum();
 
-        int[] result = search.searchSum(array, 7);
+        int[] result = solution.searchTarget(array, 6);
         if(result != null) {
-            System.out.println(result[0] + " e " + result[1]);
-
+            System.out.println("Indices " + result[0] + " e " + result[1]);
+        
         } else {
             System.out.println("Valor nao encontrado.");
+
         }
     }
 }
