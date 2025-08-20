@@ -1,3 +1,5 @@
+// algoritimo: "Two Pointer"
+
 package arrays.exercises;
 
 public class PalindromStrings {
@@ -5,7 +7,6 @@ public class PalindromStrings {
         char[] strArr = word.toCharArray(); // transforma a string em um array de caracteres
         int left = 0;
         int right = strArr.length - 1;
-
 
         while(left < right) {
 

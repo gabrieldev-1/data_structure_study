@@ -1,3 +1,5 @@
+// algoritimo: "Two Pointer"
+
 package arrays.exercises;
 
 public class TwoSum {
