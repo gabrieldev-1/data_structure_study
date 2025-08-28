@@ -1,43 +1,30 @@
-// algoritimo: "Two Pointer"
-
 package arrays.exercises;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
     public int[] searchTarget(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length - 1;
+        Map<Integer, Integer> numMap = new HashMap<>(); // HashMap, onde... key: numero value: indice do array;
+        for(int i = 0; i < arr.length; i++) { // intera sobre o array;
+            int complement = target - arr[i]; // calcula o complemento(quanto falta na soma para resultar no taget);
 
-        // o loop continua ate os ponteiros se cruzarem;
-        while(left < right) {
-            int sum = arr[left] + arr[right];
-        
-            if(sum == target) {
-                return new int[]{left, right};
+            if(numMap.containsKey(complement)) { // checa se o complemento existe no hashMap;
+                return new int[]{numMap.get(complement), i}; // retorna a solucao;
 
             }
-            if(sum < target) {
-                left++;
+            numMap.put(arr[i], i);
 
-            }
-            if(sum > right) {
-                right--;
-            }
         }
 
-        return null;
+        return new int[]{-1, -1};
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 1, 1, 1, 3, 3};
+        int[] array = {2, 7, 11, 18, 22};
         TwoSum solution = new TwoSum();
 
-        int[] result = solution.searchTarget(array, 6);
-        if(result != null) {
-            System.out.println("Indices " + result[0] + " e " + result[1]);
-        
-        } else {
-            System.out.println("Valor nao encontrado.");
-
-        }
+        int[] result = solution.searchTarget(array, 9);
+        System.out.println("Primeiro indice: " + result[0]);
+        System.out.println("Segundo indice: " + result[1]);
     }
 }
