@@ -1,39 +1,38 @@
-// algoritimo: "Two Pointer"
 
 package arrays.exercises;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RemoveDuplicates {
-    public int removeElements(int[] arr) {
-        if(arr.length == 0) {
-            return 0;
+    public int[] removeDuplicates(int[] arr) {
+        Map<Integer, Integer> arrMap = new HashMap<>();
+        int[] result = new int[arr.length];
 
-        }
-
-        int i = 0;
-
-        for(int j = 1; j < arr.length; j++) {
-            if(arr[j] != arr[i]) {
-                i++;
-                arr[i] = arr[j];
+        for(int i = 0; i < arr.length; i++) {
+            if(!arrMap.containsKey(arr[i])) {
+                result[i] = arr[i];
 
             }
-        }
-        return i + 1;
+            arrMap.put(arr[i], i);
 
+        }
+
+        return result;
     }
-    public static void main(String[] args) {
-        // O array DEVE estar ordenado para que a técnica funcione.
-        int[] array = {1, 1, 2, 2, 2, 3, 3, 4};
-        RemoveDuplicates solution = new RemoveDuplicates();
-        
-        int newLength = solution.removeElements(array);
-        System.out.println("O novo comprimento do array é: " + newLength);
 
-        // Imprime o array modificado para mostrar o resultado.
-        System.out.print("Array com duplicatas removidas: ");
-        for (int i = 0; i < newLength; i++) {
-            System.out.print(array[i] + " ");
+    public void readArr(int[] arr) {
+        for(int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
         }
+    }
+
+    public static void main(String[] args) {
+        int[] arrayOfNums = {1, 2, 3, 1, 4, 5, 2, 5};
+        RemoveDuplicates solution = new RemoveDuplicates();
+
+        int[] result = solution.removeDuplicates(arrayOfNums);
+        solution.readArr(result);
+        
     }
 }
 
