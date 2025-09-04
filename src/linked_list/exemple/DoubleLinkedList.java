@@ -1,8 +1,8 @@
 package linked_list.exemple;
 
 class Node {
-    int data;
-    Node next;
+    int data; // dado armazenado no no;
+    Node next; // Ponteiro para o proximo no;
     Node previous; // Ponteiro para o no anterior;
 
     public Node(int data) {
@@ -13,8 +13,8 @@ class Node {
 }
 
 public class DoubleLinkedList {
-    Node head = null;
-    Node tail = null;
+    Node head = null; // ponteiro para o inicio;
+    Node tail = null; // ponteiro para o final;
 
     public void addFront(int data) {
         Node newNode = new Node(data);
