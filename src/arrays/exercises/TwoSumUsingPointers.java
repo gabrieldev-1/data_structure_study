@@ -1,6 +1,6 @@
 package arrays.exercises;
 
-class Solution {
+class TwoSumUsingPointers {
     public int[] twoSum(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
@@ -27,7 +27,7 @@ class Solution {
     }
     public static void main(String[] args) {
         int[] array = {2, 7, 11, 15};
-        Solution solution = new Solution();
+        TwoSumUsingPointers solution = new TwoSumUsingPointers();
         int[] result = solution.twoSum(array, 9);
         
         System.out.println(result[0]);
