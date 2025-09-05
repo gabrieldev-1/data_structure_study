@@ -31,27 +31,15 @@ public class SearchMiddle {
     }
 
     public int search() {
-        if(head == null) {
-            throw new IllegalStateException("Lista vazia.");
-            
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        Node currNode = head;
-        int count = 0;
-
-        while(currNode != null) {
-            count++;
-            currNode = currNode.next;
-        }
-        
-        int middle = count / 2;
-        currNode = head;
-
-        for(int i = 0; i < middle; i++) {
-            currNode = currNode.next;
-        }
-
-        return currNode.data;
+        return slow.data;
 
     }
 
@@ -64,7 +52,7 @@ public class SearchMiddle {
         list.insert(40);
         list.insert(50);
         list.insert(60);
-        list.insert(70);
+;
 
         list.print();
 
