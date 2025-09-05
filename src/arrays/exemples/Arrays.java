@@ -3,8 +3,15 @@ package arrays.exemples;
 public class Arrays {
     public static void main(String[] args) {
         // Declaracao e alocacao de espaco vazio:
-        int[] notas = new int[5];
+        int[] notas = new int[2];
         String[] nomes = new String[3];
+
+        notas[0] = 10;
+        notas[1] = 6;
+
+        nomes[0] = "Gabriel dos Santos";
+        nomes[1] = "Lucas de Oliveira";
+        nomes[2] = "Marcos de Castro";  
 
         // Declaracao e inicializacao com valores:
         int[] numeros = {10, 20, 30, 40, 50};
