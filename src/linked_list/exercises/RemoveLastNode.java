@@ -1,15 +1,5 @@
 package linked_list.exercises;
 
-class Node {
-    int data;
-    Node next;
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
 public class RemoveLastNode {
     Node head = null;
 

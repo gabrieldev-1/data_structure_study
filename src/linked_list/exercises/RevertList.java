@@ -1,23 +1,11 @@
 package linked_list.exercises;
 
-class No {
-    int data;
-    No next;
-    No previous;
-
-    public No(int data) {
-        this.data = data;
-        this.next = null;
-        this.previous = null;
-    }
-}
-
 public class RevertList {
-    No head = null;
-    No tail = null;
+    Node head = null;
+    Node tail = null;
 
     public void insertNode(int data) {
-        No newNode = new No(data);
+        Node newNode = new Node(data);
 
         if(head == null) {
             this.head = newNode;
@@ -36,7 +24,7 @@ public class RevertList {
             return;
 
         }
-        No currNode = head;
+        Node currNode = head;
 
         System.out.print("----------------------");
 
@@ -50,8 +38,8 @@ public class RevertList {
     }
     
     public void revert() {
-        No current = head;
-        No temp = null;
+        Node current = head;
+        Node temp = null;
         
         
         if(head == null) {
@@ -66,7 +54,7 @@ public class RevertList {
 
             current = current.previous;
         }
-
+        
         head = temp.previous;
 
     }
