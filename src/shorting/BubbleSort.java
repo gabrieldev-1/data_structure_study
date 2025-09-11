@@ -1,6 +1,9 @@
 package shorting;
 import java.util.Arrays;
 
+// complexidade temporal: O(n²)
+// complexidade espacial: O(1)
+
 public class BubbleSort {
     public void sort(int[] arr) {
         boolean swap = true;
