@@ -27,24 +27,38 @@ public class BinaryTree {
             return;
         }
 
-        Node currNode = root;
+        Node current = root;
+        Node parent = null;
 
-        if(newNode.data < currNode.data) {
-            while(currNode.left != null) {
-                currNode = currNode.left;
+        while(current != null) {
+            parent = current;
+
+            if (data < current.data) {
+                current = current.left;
+        
+            } else {
+                current = current.right;
+
             }
-            currNode.left = newNode;
-            return;
-
         }
 
-        if(newNode.data > currNode.data) {
-            while(currNode.right != null) {
-                currNode = currNode.right;
-            }
+        if(data < parent.data) {
+            parent.left = newNode;
 
-            currNode.right = newNode;
-            return;
+        } else {
+            parent.right = newNode;
         }
+
+    }
+
+    public static void main(String[] args) {
+        BinaryTree bst = new BinaryTree();
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        bst.insert(20);
+        bst.insert(40);
+        bst.insert(60);
+        bst.insert(80);
     }
 }
