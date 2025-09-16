@@ -20,45 +20,43 @@ public class BinaryTree {
     Node root = null;
 
     public void insert(int data) {
-        Node newNode = new Node(data);
+        root = insertRec(root, data);
+    }
 
-        if(root == null) {
-            root = newNode;
-            return;
+    public Node insertRec(Node current, int data) {
+        if(current == null) {
+            return new Node(data);
+
         }
 
-        Node current = root;
-        Node parent = null;
-
-        while(current != null) {
-            parent = current;
-
-            if (data < current.data) {
-                current = current.left;
+        if(data < current.data) {
+            current.left = insertRec(current.left, data);
         
-            } else {
-                current = current.right;
+        } else if (data > current.data) {
+            current.right = insertRec(current.right, data);
 
-            }
         }
 
-        if(data < parent.data) {
-            parent.left = newNode;
+        return current;
 
-        } else {
-            parent.right = newNode;
+    }
+
+    public void printInOrder(Node node) {
+        if(node != null) {
+            printInOrder(node.left);
+            System.out.println(node.data + " ");
+            printInOrder(node.right);
         }
-
     }
 
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
-        bst.insert(50);
-        bst.insert(30);
-        bst.insert(70);
+        bst.insert(10);
+        bst.insert(5);
         bst.insert(20);
-        bst.insert(40);
-        bst.insert(60);
-        bst.insert(80);
+
+        System.out.println("Árvore após inserção (percurso in-order):");
+        bst.printInOrder(bst.root);
+        System.out.println();
     }
 }
