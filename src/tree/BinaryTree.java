@@ -23,12 +23,16 @@ public class BinaryTree {
         root = insertRec(root, data);
     }
 
-    public Node insertRec(Node current, int data) {
+    // funcao recursiva que e chamada para cada sub-arvore;
+    private Node insertRec(Node current, int data) {
+
+        // Condicao de parada. Necessaria em um algoritimo recursivo;
         if(current == null) {
             return new Node(data);
 
         }
 
+        // valida para que lado o current "deve ir";
         if(data < current.data) {
             current.left = insertRec(current.left, data);
         
