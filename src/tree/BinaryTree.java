@@ -1,4 +1,5 @@
 package tree;
+import java.util.ArrayList;
 
 // BST = "Binary Search Three"
 // E uma arvore que armazena os valores menores a esquerda e os maiores a direita;
@@ -45,22 +46,36 @@ public class BinaryTree {
 
     }
 
-    public void printInOrder(Node node) {
-        if(node != null) {
-            printInOrder(node.left);
-            System.out.println(node.data + " ");
-            printInOrder(node.right);
-        }
+    // Percurso pre-order:(implementado de forma recursiva);
+    public ArrayList<Integer> preOrderTranversal() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        this.preOrderTranversalRec(root, result);
+
+        return result;
     }
 
+    public void preOrderTranversalRec(Node node, ArrayList<Integer> result) {
+        if(node != null) {
+            result.add(node.data);
+            this.preOrderTranversalRec(node.left, result);
+            this.preOrderTranversalRec(node.right, result);
+        }
+
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
-        bst.insert(10);
         bst.insert(5);
-        bst.insert(20);
+        bst.insert(3);
+        bst.insert(1);
+        bst.insert(10);
+        bst.insert(15);
+        bst.insert(7);
 
-        System.out.println("Árvore após inserção (percurso in-order):");
-        bst.printInOrder(bst.root);
-        System.out.println();
+        ArrayList<Integer> result = bst.preOrderTranversal();
+        for(int i = 0; i < result.size(); i++) {
+            System.out.println(result.get(i));
+        }
+
     }
 }
