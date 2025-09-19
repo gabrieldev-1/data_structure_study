@@ -46,7 +46,7 @@ public class BinaryTree {
 
     }
 
-    // Percurso pre-order:(implementado de forma recursiva);
+    // Percurso pre-order:
     public ArrayList<Integer> preOrderTranversal() {
         ArrayList<Integer> result = new ArrayList<>();
 
@@ -55,7 +55,7 @@ public class BinaryTree {
         return result;
     }
 
-    public void preOrderTranversalRec(Node node, ArrayList<Integer> result) {
+    private void preOrderTranversalRec(Node node, ArrayList<Integer> result) {
         if(node != null) {
             result.add(node.data);
             this.preOrderTranversalRec(node.left, result);
@@ -63,6 +63,24 @@ public class BinaryTree {
         }
 
     }
+
+    // Percurso in-order:
+    public ArrayList<Integer> inOrderTranversal() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        this.inOrderTranversalRec(root, result);
+
+        return result;
+    }
+
+    private void inOrderTranversalRec(Node node, ArrayList<Integer> result) {
+        if(node != null) {
+            this.inOrderTranversalRec(node.left, result);
+            result.add(node.data);
+            this.inOrderTranversalRec(node.right, result);
+        }
+    }
+
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.insert(5);
@@ -72,9 +90,16 @@ public class BinaryTree {
         bst.insert(15);
         bst.insert(7);
 
-        ArrayList<Integer> result = bst.preOrderTranversal();
-        for(int i = 0; i < result.size(); i++) {
-            System.out.println(result.get(i));
+        ArrayList<Integer> resultPreOrder = bst.preOrderTranversal();
+        for(int i = 0; i < resultPreOrder.size(); i++) {
+            System.out.println(resultPreOrder.get(i));
+        }
+
+        System.out.println("-------------------------");
+
+        ArrayList<Integer> resultInOrder = bst.inOrderTranversal();
+        for(int i = 0; i < resultInOrder.size(); i++) {
+            System.out.println(resultInOrder.get(i));
         }
 
     }
