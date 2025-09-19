@@ -81,6 +81,24 @@ public class BinaryTree {
         }
     }
 
+    // Percusro post-order
+    public ArrayList<Integer> postOrderTranversal() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        this.postOrderTranversalRec(root, result);
+
+        return result;
+
+    }
+
+    private void postOrderTranversalRec(Node node, ArrayList<Integer> result) {
+        if(node != null) {
+            this.postOrderTranversalRec(node.left, result);
+            this.postOrderTranversalRec(node.right, result);
+            result.add(node.data);
+        }
+    }
+
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.insert(5);
@@ -90,6 +108,9 @@ public class BinaryTree {
         bst.insert(15);
         bst.insert(7);
 
+        System.out.println("-------------------------");
+
+        System.out.println("Leitura pre-order:");
         ArrayList<Integer> resultPreOrder = bst.preOrderTranversal();
         for(int i = 0; i < resultPreOrder.size(); i++) {
             System.out.println(resultPreOrder.get(i));
@@ -97,10 +118,21 @@ public class BinaryTree {
 
         System.out.println("-------------------------");
 
-        ArrayList<Integer> resultInOrder = bst.inOrderTranversal();
+        System.out.println("Leitura in-order:");
+        ArrayList<Integer> resultInOrder = bst.postOrderTranversal();
         for(int i = 0; i < resultInOrder.size(); i++) {
             System.out.println(resultInOrder.get(i));
         }
+
+        System.out.println("-------------------------");
+
+        System.out.println("Leitura post-order:");
+        ArrayList<Integer> resultPostOrder = bst.postOrderTranversal();
+        for(int i = 0; i < resultPostOrder.size(); i++) {
+            System.out.println(resultPostOrder.get(i));
+        }
+
+        System.out.println("-------------------------");
 
     }
 }
