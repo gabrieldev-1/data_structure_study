@@ -99,6 +99,27 @@ public class BinaryTree {
         }
     }
 
+    // ==> Algoritmos de busca na arvore <==
+
+    // DFS:
+    public void dfs() {
+        dfsRecursive(this.root);
+    }
+
+    private void dfsRecursive(Node node) {
+        if(node == null) {
+            return;
+        }
+
+        System.out.println(node.data);
+
+        // visita recursivamente os filhos da esquerda
+        dfsRecursive(node.left);
+
+        // visita recursivamente os filhos da direita
+        dfsRecursive(node.right);
+    }
+
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.insert(5);
@@ -107,6 +128,8 @@ public class BinaryTree {
         bst.insert(10);
         bst.insert(15);
         bst.insert(7);
+
+        System.out.println("==> Algoritimos de busca e leitura <==");
 
         System.out.println("-------------------------");
 
@@ -119,7 +142,7 @@ public class BinaryTree {
         System.out.println("-------------------------");
 
         System.out.println("Leitura in-order:");
-        ArrayList<Integer> resultInOrder = bst.postOrderTranversal();
+        ArrayList<Integer> resultInOrder = bst.inOrderTranversal();
         for(int i = 0; i < resultInOrder.size(); i++) {
             System.out.println(resultInOrder.get(i));
         }
@@ -133,6 +156,8 @@ public class BinaryTree {
         }
 
         System.out.println("-------------------------");
-
+        
+        System.out.println("DFS: Depth First Search");
+        bst.dfs();
     }
 }
