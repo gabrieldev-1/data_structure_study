@@ -1,5 +1,8 @@
 package tree;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.Queue;
+import java.util.ArrayDeque;
 
 // BST = "Binary Search Three"
 // E uma arvore que armazena os valores menores a esquerda e os maiores a direita;
@@ -118,6 +121,33 @@ public class BinaryTree {
 
         // visita recursivamente os filhos da direita
         dfsRecursive(node.right);
+    }
+
+    // BFS:
+    public Boolean bfs(int target) {
+        if(this.root == null) {
+            return false;
+        }
+
+        ArrayDeque<Node> queue = new ArrayDeque<>();
+        queue.add(this.root);
+
+        while(!queue.isEmpty()) {
+            Node current = queue.poll(); // recupera o primeiro elemento da fila
+            if(current.data == target) {
+                return true;
+            }
+
+            if(current.left != null) {
+                queue.add(current.left);
+            }
+
+            if(current.right != null) {
+                queue.add(current.right);
+            }
+        }
+
+        return false;
     }
 
     public static void main(String[] args) {
