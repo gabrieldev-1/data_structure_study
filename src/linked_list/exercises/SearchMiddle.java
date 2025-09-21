@@ -27,8 +27,8 @@ public class SearchMiddle {
                         slow = slow.next;
                         fast = fast.next.next;
                 }
-                
                 return slow;
+                
         }
 
         public static void main(String[] agrs) {

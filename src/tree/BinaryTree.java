@@ -53,18 +53,17 @@ public class BinaryTree {
     public ArrayList<Integer> preOrderTranversal() {
         ArrayList<Integer> result = new ArrayList<>();
 
-        this.preOrderTranversalRec(root, result);
+        this.preOrderTranversalRec(root, result);  // tecnica de 'backtracking'
 
         return result;
     }
 
-    private void preOrderTranversalRec(Node node, ArrayList<Integer> result) {
+    public void preOrderTranversalRec(Node node, ArrayList<Integer> result) {
         if(node != null) {
             result.add(node.data);
             this.preOrderTranversalRec(node.left, result);
             this.preOrderTranversalRec(node.right, result);
         }
-
     }
 
     // Percurso in-order:
