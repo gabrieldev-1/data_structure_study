@@ -1,6 +1,6 @@
 // Representacao de um grafo nao direcionado;
 
-package graphs;
+package graphs.exemples;
 
 public class AdjacencyMatrix {
     private int numNodes;
@@ -36,6 +36,7 @@ public class AdjacencyMatrix {
     }
 
     public void printGraph() {
+        System.out.println("Grafo de " + this.numNodes + " vertices:");
         for(int i = 0; i < numNodes; i++) {
             for(int j = 0; j < numNodes; j++) {
                 System.out.print((adjMatrix[i][j] ? 1 : 0) + " "); // Converte os valores booleanos em '1' e '0';
