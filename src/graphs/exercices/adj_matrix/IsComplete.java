@@ -1,4 +1,4 @@
-package graphs.exercices;
+package graphs.exercices.adj_matrix;
 
 public class IsComplete {
     private int numVertex;
