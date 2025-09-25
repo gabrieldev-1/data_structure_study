@@ -1,55 +1,53 @@
 package stacks;
 
-class Node {
-    public int data;
-    public Node previous;
-
-    public Node(int data) {
-        this.data = data;
-        this.previous = null;
-    }
-}
+// Utilizando arrays
 
 public class Stack {
-    public Node head;
+    private int[] stackArr;
+    private int top = -1;
 
-    public void put(int data) {
-        Node newNode = new Node(data);
+    public Stack(int size) {
+        this.stackArr = new int[size];
+    }
 
-        // A ponta para o antigo head;
-        newNode.previous = head;
+    public void push(int value) {
+        if(top + 1 > stackArr.length - 1) {
+            System.out.println("Stack overflow!");
+            return;
+        }
 
-        // Torna o novo no o head;
-        head = newNode;
+        top++;
+        stackArr[top] = value;
+
     }
 
     public void pop() {
-        if(head == null) {
-            System.out.println("A lista esta vazia");
-            return;
-
+        if (top >= 0) {
+            stackArr[top] = 0;
+            top--;
+        } else {
+            System.out.println("Stack underflow!");
         }
-        head = head.previous;
-
     }
 
-    public void showStack() {
-        Node current = head;
-        while(current != null) {
-            System.out.println(current.data + " -> ");
-            current = current.previous;
+    public void printStack() {
+        for (int i = top; i >= 0; i--) {
+            System.out.println(stackArr[i]);
         }
-        System.out.println("NULL");
     }
 
     public static void main(String[] args) {
-        Stack myStack = new Stack();
+        Stack myStack = new Stack(5);
 
-        myStack.put(1);
-        myStack.put(2);
-        myStack.put(3);
-        myStack.showStack();
+        myStack.push(10);
+        myStack.push(5);
+        myStack.push(15);
+        myStack.push(10);
+        myStack.push(5);
         myStack.pop();
-        myStack.showStack();
+        myStack.pop();
+        myStack.printStack();
+
     }
+
 }

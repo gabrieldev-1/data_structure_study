@@ -1,7 +1,5 @@
 package tree;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.Queue;
 import java.util.ArrayDeque;
 
 // BST = "Binary Search Three"

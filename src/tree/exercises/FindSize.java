@@ -1,7 +1,5 @@
 package tree.exercises;
 
-import java.util.ArrayList;
-
 public class FindSize {
     Node root = null;
 
