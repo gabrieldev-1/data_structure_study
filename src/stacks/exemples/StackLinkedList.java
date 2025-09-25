@@ -1,4 +1,4 @@
-package stacks;
+package stacks.exemples;
 
 class Node {
     int data;
