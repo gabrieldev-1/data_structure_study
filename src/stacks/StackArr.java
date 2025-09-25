@@ -1,14 +1,12 @@
 package stacks;
 
-import javax.swing.text.html.HTMLDocument.BlockElement;
-
 // Utilizando arrays
 
-public class Stack {
+public class StackArr {
     private int[] stackArr;
     private int top = -1;
 
-    public Stack(int size) {
+    public StackArr(int size) {
         this.stackArr = new int[size];
     }
 
@@ -52,7 +50,7 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        Stack myStack = new Stack(5);
+        StackArr myStack = new StackArr(5);
 
 
         myStack.push(5);
