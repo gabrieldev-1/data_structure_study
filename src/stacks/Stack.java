@@ -1,5 +1,7 @@
 package stacks;
 
+import javax.swing.text.html.HTMLDocument.BlockElement;
+
 // Utilizando arrays
 
 public class Stack {
@@ -10,24 +12,37 @@ public class Stack {
         this.stackArr = new int[size];
     }
 
+    private Boolean isFull() {
+        return top == stackArr.length - 1;
+
+    }
+
+    private Boolean isEmpty() {
+        if(top == -1) {
+            return true;
+        }
+        return false;
+    }
+
     public void push(int value) {
-        if(top + 1 > stackArr.length - 1) {
-            System.out.println("Stack overflow!");
+        if(this.isFull()) {
+            System.out.println("A pilha esta cheia!");
             return;
         }
 
         top++;
         stackArr[top] = value;
-
     }
 
     public void pop() {
-        if (top >= 0) {
-            stackArr[top] = 0;
-            top--;
-        } else {
-            System.out.println("Stack underflow!");
+        if(this.isEmpty()) {
+            System.out.println("Nao e possivel remover elemetos. A lista esta vazia.");
+            return;
         }
+
+        stackArr[top] = 0;
+        top--;
+
     }
 
     public void printStack() {
@@ -39,13 +54,9 @@ public class Stack {
     public static void main(String[] args) {
         Stack myStack = new Stack(5);
 
-        myStack.push(10);
+
         myStack.push(5);
-        myStack.push(15);
         myStack.push(10);
-        myStack.push(5);
-        myStack.pop();
-        myStack.pop();
         myStack.printStack();
 
     }
