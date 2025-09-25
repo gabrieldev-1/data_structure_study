@@ -14,12 +14,11 @@ class MinStack {
     }
     
     public void push(int val) {
-        this.stack.addLast(val);
+        stack.addLast(val);
 
-        if(minStack.isEmpty() || val < minStack.getLast()) {
+        if (minStack.isEmpty() || val <= minStack.getLast()) {
             minStack.addLast(val);
         }
-
     }
     
     public void pop() {
@@ -37,15 +36,24 @@ class MinStack {
         return minStack.getLast();
     }
 
+    public void printStack() {
+        for(int i = 0; i < stack.size(); i++) {
+            System.out.println(stack.get(i));
+        }
+    }
+
     public static void main(String[] args) {
         MinStack solution = new MinStack();
 
         solution.push(10);
-        solution.push(30);
-        solution.push(3);
+        solution.push(-2);
+        solution.push(0);
         solution.push(20);
 
-        System.out.println(solution.getMin());
+        solution.pop();
+        solution.printStack();
 
+        System.out.println("Minimo:");
+        System.out.println(solution.getMin());
     }
 }
