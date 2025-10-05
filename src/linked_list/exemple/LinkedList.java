@@ -23,8 +23,10 @@ public class LinkedList {
 
         Node current = head;
         while(current.next != null) {
-            current.next = newNode;
+            current = current.next;
         }
+
+        current.next = newNode;
     }
 
     public void print() {
@@ -32,6 +34,7 @@ public class LinkedList {
 
         while (current != null) {
             System.out.println(current.data);
+            current = current.next;
         }
     }
 
@@ -43,6 +46,8 @@ public class LinkedList {
         list.insert(22);
         list.insert(3);
         list.insert(5);
+
+        list.print();
 
     }
 }
